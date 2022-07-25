@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="DatabaseService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:64699/DatabaseService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:64699/DatabaseService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:64699/DatabaseService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ServerApplication.DataObjects" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDatabaseService_Authorize_InputMessage">
+    <wsdl:part name="parameters" element="tns:Authorize" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_Authorize_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthorizeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployee" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetDepartments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepartments" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetDepartments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepartmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetPositions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPositions" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetPositions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPositionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTypes" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategories" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetContractors_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContractors" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetContractors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContractorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetStatuses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatuses" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetStatuses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatusesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetAllClaims_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllClaims" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetAllClaims_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllClaimsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetEmployeesClaims_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeesClaims" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetEmployeesClaims_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeesClaimsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_CreateClaim_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateClaim" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_CreateClaim_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateClaimResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_ApproveClaim_InputMessage">
+    <wsdl:part name="parameters" element="tns:ApproveClaim" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_ApproveClaim_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ApproveClaimResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_SendExecuteClaim_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendExecuteClaim" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_SendExecuteClaim_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendExecuteClaimResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_ExecuteClaim_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteClaim" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_ExecuteClaim_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteClaimResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_FinishClaim_InputMessage">
+    <wsdl:part name="parameters" element="tns:FinishClaim" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_FinishClaim_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FinishClaimResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_SetContractorClaim_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetContractorClaim" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_SetContractorClaim_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetContractorClaimResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_AcceptClaim_InputMessage">
+    <wsdl:part name="parameters" element="tns:AcceptClaim" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_AcceptClaim_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AcceptClaimResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_DeclineClaim_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeclineClaim" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_DeclineClaim_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeclineClaimResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_CloseClaim_InputMessage">
+    <wsdl:part name="parameters" element="tns:CloseClaim" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_CloseClaim_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CloseClaimResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_UpdatePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePassword" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_UpdatePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_UpdatePhone_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePhone" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_UpdatePhone_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePhoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_UpdateAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAddress" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_UpdateAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_UpdateEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEmail" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_UpdateEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEmailResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDatabaseService">
+    <wsdl:operation name="Authorize">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/Authorize" message="tns:IDatabaseService_Authorize_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/AuthorizeResponse" message="tns:IDatabaseService_Authorize_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployee">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/GetEmployee" message="tns:IDatabaseService_GetEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/GetEmployeeResponse" message="tns:IDatabaseService_GetEmployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/GetDepartments" message="tns:IDatabaseService_GetDepartments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/GetDepartmentsResponse" message="tns:IDatabaseService_GetDepartments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPositions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/GetPositions" message="tns:IDatabaseService_GetPositions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/GetPositionsResponse" message="tns:IDatabaseService_GetPositions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/GetTypes" message="tns:IDatabaseService_GetTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/GetTypesResponse" message="tns:IDatabaseService_GetTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/GetCategories" message="tns:IDatabaseService_GetCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/GetCategoriesResponse" message="tns:IDatabaseService_GetCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContractors">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/GetContractors" message="tns:IDatabaseService_GetContractors_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/GetContractorsResponse" message="tns:IDatabaseService_GetContractors_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatuses">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/GetStatuses" message="tns:IDatabaseService_GetStatuses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/GetStatusesResponse" message="tns:IDatabaseService_GetStatuses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllClaims">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/GetAllClaims" message="tns:IDatabaseService_GetAllClaims_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/GetAllClaimsResponse" message="tns:IDatabaseService_GetAllClaims_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeesClaims">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/GetEmployeesClaims" message="tns:IDatabaseService_GetEmployeesClaims_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/GetEmployeesClaimsResponse" message="tns:IDatabaseService_GetEmployeesClaims_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateClaim">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/CreateClaim" message="tns:IDatabaseService_CreateClaim_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/CreateClaimResponse" message="tns:IDatabaseService_CreateClaim_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ApproveClaim">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/ApproveClaim" message="tns:IDatabaseService_ApproveClaim_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/ApproveClaimResponse" message="tns:IDatabaseService_ApproveClaim_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendExecuteClaim">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/SendExecuteClaim" message="tns:IDatabaseService_SendExecuteClaim_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/SendExecuteClaimResponse" message="tns:IDatabaseService_SendExecuteClaim_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteClaim">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/ExecuteClaim" message="tns:IDatabaseService_ExecuteClaim_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/ExecuteClaimResponse" message="tns:IDatabaseService_ExecuteClaim_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FinishClaim">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/FinishClaim" message="tns:IDatabaseService_FinishClaim_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/FinishClaimResponse" message="tns:IDatabaseService_FinishClaim_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetContractorClaim">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/SetContractorClaim" message="tns:IDatabaseService_SetContractorClaim_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/SetContractorClaimResponse" message="tns:IDatabaseService_SetContractorClaim_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AcceptClaim">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/AcceptClaim" message="tns:IDatabaseService_AcceptClaim_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/AcceptClaimResponse" message="tns:IDatabaseService_AcceptClaim_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeclineClaim">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/DeclineClaim" message="tns:IDatabaseService_DeclineClaim_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/DeclineClaimResponse" message="tns:IDatabaseService_DeclineClaim_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CloseClaim">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/CloseClaim" message="tns:IDatabaseService_CloseClaim_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/CloseClaimResponse" message="tns:IDatabaseService_CloseClaim_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/UpdatePassword" message="tns:IDatabaseService_UpdatePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/UpdatePasswordResponse" message="tns:IDatabaseService_UpdatePassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePhone">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/UpdatePhone" message="tns:IDatabaseService_UpdatePhone_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/UpdatePhoneResponse" message="tns:IDatabaseService_UpdatePhone_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/UpdateAddress" message="tns:IDatabaseService_UpdateAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/UpdateAddressResponse" message="tns:IDatabaseService_UpdateAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/UpdateEmail" message="tns:IDatabaseService_UpdateEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/UpdateEmailResponse" message="tns:IDatabaseService_UpdateEmail_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IDatabaseService" type="tns:IDatabaseService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Authorize">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/Authorize" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployee">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartments">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetDepartments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPositions">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetPositions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTypes">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContractors">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetContractors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatuses">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetStatuses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllClaims">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetAllClaims" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeesClaims">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetEmployeesClaims" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateClaim">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/CreateClaim" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApproveClaim">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/ApproveClaim" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendExecuteClaim">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/SendExecuteClaim" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteClaim">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/ExecuteClaim" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FinishClaim">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/FinishClaim" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetContractorClaim">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/SetContractorClaim" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcceptClaim">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/AcceptClaim" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeclineClaim">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/DeclineClaim" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseClaim">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/CloseClaim" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePassword">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/UpdatePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePhone">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/UpdatePhone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAddress">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/UpdateAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmail">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/UpdateEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DatabaseService">
+    <wsdl:port name="BasicHttpBinding_IDatabaseService" binding="tns:BasicHttpBinding_IDatabaseService">
+      <soap:address location="http://localhost:64699/DatabaseService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ServerApplication.DataObjects" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ServerApplication.DataObjects" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="EmployeeEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BirthDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Department" type="xs:int" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PassHash" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Photo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Position" type="xs:int" />
+      <xs:element minOccurs="0" name="TableNumber" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EmployeeEntity" nillable="true" type="tns:EmployeeEntity" />
+  <xs:complexType name="ArrayOfDepartmentEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DepartmentEntity" nillable="true" type="tns:DepartmentEntity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDepartmentEntity" nillable="true" type="tns:ArrayOfDepartmentEntity" />
+  <xs:complexType name="DepartmentEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Head" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DepartmentEntity" nillable="true" type="tns:DepartmentEntity" />
+  <xs:complexType name="ArrayOfPositionEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PositionEntity" nillable="true" type="tns:PositionEntity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPositionEntity" nillable="true" type="tns:ArrayOfPositionEntity" />
+  <xs:complexType name="PositionEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PositionEntity" nillable="true" type="tns:PositionEntity" />
+  <xs:complexType name="ArrayOfTypeEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TypeEntity" nillable="true" type="tns:TypeEntity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTypeEntity" nillable="true" type="tns:ArrayOfTypeEntity" />
+  <xs:complexType name="TypeEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TypeEntity" nillable="true" type="tns:TypeEntity" />
+  <xs:complexType name="ArrayOfCategoryEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CategoryEntity" nillable="true" type="tns:CategoryEntity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCategoryEntity" nillable="true" type="tns:ArrayOfCategoryEntity" />
+  <xs:complexType name="CategoryEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="xs:int" />
+      <xs:element minOccurs="0" name="Hours" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CategoryEntity" nillable="true" type="tns:CategoryEntity" />
+  <xs:complexType name="ArrayOfContractorEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ContractorEntity" nillable="true" type="tns:ContractorEntity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfContractorEntity" nillable="true" type="tns:ArrayOfContractorEntity" />
+  <xs:complexType name="ContractorEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Rating" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContractorEntity" nillable="true" type="tns:ContractorEntity" />
+  <xs:complexType name="ArrayOfStatusEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StatusEntity" nillable="true" type="tns:StatusEntity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStatusEntity" nillable="true" type="tns:ArrayOfStatusEntity" />
+  <xs:complexType name="StatusEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="xs:int" />
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StatusEntity" nillable="true" type="tns:StatusEntity" />
+  <xs:complexType name="ArrayOfClaimEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClaimEntity" nillable="true" type="tns:ClaimEntity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClaimEntity" nillable="true" type="tns:ArrayOfClaimEntity" />
+  <xs:complexType name="ClaimEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApprovalDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Category" nillable="true" type="tns:CategoryEntity" />
+      <xs:element minOccurs="0" name="ClaimType" nillable="true" type="tns:TypeEntity" />
+      <xs:element minOccurs="0" name="ClosedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ConfirmedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Contractor" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Department" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Dispatcher" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ExecutionDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Executor" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="FinishedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Initiator" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="tns:StatusEntity" />
+      <xs:element minOccurs="0" name="Theme" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClaimEntity" nillable="true" type="tns:ClaimEntity" />
+</xs:schema>

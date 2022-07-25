@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="ClientApplication.Helpers.HashingHelper">
+    <Position X="21" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helpers\HashingHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClientApplication.Helpers.WindowsContainer">
+    <Position X="16.75" Y="0.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAgABAAAAAAAAAAAAAAAAQEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helpers\WindowsContainer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClientApplication.ViewModels.Commands.AuthorizeCommand" BaseTypeListCollapsed="true">
+    <Position X="20.5" Y="2" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAACAAQAAEAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>ViewModels\Commands\AuthorizeCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ClientApplication.ViewModels.Commands.CloseCommand" BaseTypeListCollapsed="true">
+    <Position X="20.5" Y="5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQAgEAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>ViewModels\Commands\CloseCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ClientApplication.ViewModels.Commands.CreateClaimCommand" BaseTypeListCollapsed="true">
+    <Position X="20.5" Y="11" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQEAEAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>ViewModels\Commands\CreateClaimCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ClientApplication.ViewModels.Commands.RelayCommand" BaseTypeListCollapsed="true">
+    <Position X="20.5" Y="8" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQAAEAEAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Commands\RelayCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ClientApplication.ViewModels.InputValuesConverter" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="8.75" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\AddClaimWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ClientApplication.ViewModels.AddClaimWindowViewModel" BaseTypeListCollapsed="true">
+    <Position X="13" Y="3" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAQAAQAAAAEAAQAIAAAAKCAAA=</HashCode>
+      <FileName>ViewModels\AddClaimWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ClientApplication.ViewModels.AuthWindowViewModel">
+    <Position X="5.5" Y="3" Width="3" />
+    <TypeIdentifier>
+      <HashCode>EAAAoAAAACQAAAQgAAAAAAAAAAAAACACAIAgAhCAAAA=</HashCode>
+      <FileName>ViewModels\AuthWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ClientApplication.ViewModels.BaseViewModel">
+    <Position X="10.75" Y="0.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\BaseViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClientApplication.ViewModels.InfoConverter" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="10.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\MainWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ClientApplication.ViewModels.PasswordConverter" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="12.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\MainWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ClientApplication.ViewModels.MainWindowViewModel">
+    <Position X="16.75" Y="3" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAIGAQaK4AgAAkQCAhQECCABBVAgAQBQAAQAGAAKA=</HashCode>
+      <FileName>ViewModels\MainWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ClientApplication.ViewModels.MessageWindowViewModel">
+    <Position X="9.25" Y="3" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAEAAAAAAAAAIIAAAAAAAAAAAIACAACA=</HashCode>
+      <FileName>ViewModels\MessageWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ClientApplication.Views.AddClaimWindow" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="6.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\AddClaimWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ClientApplication.Views.AuthWindow" BaseTypeListCollapsed="true">
+    <Position X="5.5" Y="7.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\AuthWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ClientApplication.Views.MainWindow" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ClientApplication.Views.MessageWindow" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="6.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\MessageWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ClientApplication.App">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="ClientApplication.ViewModels.FormData">
+    <Position X="14.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABBAAAAAAYAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\AddClaimWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="ClientApplication.ViewModels.IClosable">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>ViewModels\BaseViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

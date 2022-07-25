@@ -1,0 +1,680 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ClaimsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="categories">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="int" Nullable="false" />
+          <Property Name="category" Type="nvarchar" MaxLength="20" />
+          <Property Name="hours" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="claims">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="theme" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="nvarchar" MaxLength="150" />
+          <Property Name="created_date" Type="datetime" Nullable="false" />
+          <Property Name="initiator" Type="int" Nullable="false" />
+          <Property Name="category" Type="int" Nullable="false" />
+          <Property Name="approved_date" Type="datetime" />
+          <Property Name="dispatcher" Type="int" />
+          <Property Name="department" Type="int" />
+          <Property Name="finished_date" Type="datetime" />
+          <Property Name="executed_date" Type="datetime" />
+          <Property Name="executor" Type="int" />
+          <Property Name="status" Type="int" Nullable="false" />
+          <Property Name="contractor" Type="int" />
+          <Property Name="type" Type="int" Nullable="false" />
+          <Property Name="closed_date" Type="datetime" />
+          <Property Name="confirmed_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="contractors">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="contact_phone" Type="decimal" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="rating" Type="int" Nullable="false" />
+          <Property Name="address" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="departments">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="head" Type="int" Nullable="false" />
+          <Property Name="address" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="employees">
+          <Key>
+            <PropertyRef Name="table_number" />
+          </Key>
+          <Property Name="table_number" Type="int" Nullable="false" />
+          <Property Name="last_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="first_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="middle_name" Type="nvarchar" MaxLength="30" />
+          <Property Name="position" Type="int" Nullable="false" />
+          <Property Name="photo_path" Type="nvarchar" MaxLength="50" />
+          <Property Name="department" Type="int" Nullable="false" />
+          <Property Name="birth_date" Type="date" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="phone" Type="decimal" Precision="11" Scale="0" />
+          <Property Name="pass_hash" Type="binary" MaxLength="16" Nullable="false" />
+          <Property Name="address" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="positions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="nvarchar" MaxLength="50" />
+          <Property Name="document_path" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="statuses">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="int" Nullable="false" />
+          <Property Name="status" Type="nvarchar" MaxLength="25" />
+          <Property Name="comment" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="types">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="type" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_claims_categories">
+          <End Role="categories" Type="Self.categories" Multiplicity="1" />
+          <End Role="claims" Type="Self.claims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categories">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="claims">
+              <PropertyRef Name="category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_claims_contractors">
+          <End Role="contractors" Type="Self.contractors" Multiplicity="0..1" />
+          <End Role="claims" Type="Self.claims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contractors">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="claims">
+              <PropertyRef Name="contractor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_claims_departments">
+          <End Role="departments" Type="Self.departments" Multiplicity="0..1" />
+          <End Role="claims" Type="Self.claims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departments">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="claims">
+              <PropertyRef Name="department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_claims_employees">
+          <End Role="employees" Type="Self.employees" Multiplicity="1" />
+          <End Role="claims" Type="Self.claims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employees">
+              <PropertyRef Name="table_number" />
+            </Principal>
+            <Dependent Role="claims">
+              <PropertyRef Name="initiator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_claims_employees_disp">
+          <End Role="employees" Type="Self.employees" Multiplicity="0..1" />
+          <End Role="claims" Type="Self.claims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employees">
+              <PropertyRef Name="table_number" />
+            </Principal>
+            <Dependent Role="claims">
+              <PropertyRef Name="dispatcher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_claims_employees_exec">
+          <End Role="employees" Type="Self.employees" Multiplicity="0..1" />
+          <End Role="claims" Type="Self.claims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employees">
+              <PropertyRef Name="table_number" />
+            </Principal>
+            <Dependent Role="claims">
+              <PropertyRef Name="executor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_claims_statuses">
+          <End Role="statuses" Type="Self.statuses" Multiplicity="1" />
+          <End Role="claims" Type="Self.claims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="statuses">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="claims">
+              <PropertyRef Name="status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_claims_types">
+          <End Role="types" Type="Self.types" Multiplicity="1" />
+          <End Role="claims" Type="Self.claims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="types">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="claims">
+              <PropertyRef Name="type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_employees_departments">
+          <End Role="departments" Type="Self.departments" Multiplicity="1" />
+          <End Role="employees" Type="Self.employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departments">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="employees">
+              <PropertyRef Name="department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_employees_positions">
+          <End Role="positions" Type="Self.positions" Multiplicity="1" />
+          <End Role="employees" Type="Self.employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="positions">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="employees">
+              <PropertyRef Name="position" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ClaimsModelStoreContainer">
+          <EntitySet Name="categories" EntityType="Self.categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="claims" EntityType="Self.claims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="contractors" EntityType="Self.contractors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="departments" EntityType="Self.departments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="employees" EntityType="Self.employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="positions" EntityType="Self.positions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="statuses" EntityType="Self.statuses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="types" EntityType="Self.types" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_claims_categories" Association="Self.FK_claims_categories">
+            <End Role="categories" EntitySet="categories" />
+            <End Role="claims" EntitySet="claims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_claims_contractors" Association="Self.FK_claims_contractors">
+            <End Role="contractors" EntitySet="contractors" />
+            <End Role="claims" EntitySet="claims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_claims_departments" Association="Self.FK_claims_departments">
+            <End Role="departments" EntitySet="departments" />
+            <End Role="claims" EntitySet="claims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_claims_employees" Association="Self.FK_claims_employees">
+            <End Role="employees" EntitySet="employees" />
+            <End Role="claims" EntitySet="claims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_claims_employees_disp" Association="Self.FK_claims_employees_disp">
+            <End Role="employees" EntitySet="employees" />
+            <End Role="claims" EntitySet="claims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_claims_employees_exec" Association="Self.FK_claims_employees_exec">
+            <End Role="employees" EntitySet="employees" />
+            <End Role="claims" EntitySet="claims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_claims_statuses" Association="Self.FK_claims_statuses">
+            <End Role="statuses" EntitySet="statuses" />
+            <End Role="claims" EntitySet="claims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_claims_types" Association="Self.FK_claims_types">
+            <End Role="types" EntitySet="types" />
+            <End Role="claims" EntitySet="claims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_employees_departments" Association="Self.FK_employees_departments">
+            <End Role="departments" EntitySet="departments" />
+            <End Role="employees" EntitySet="employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_employees_positions" Association="Self.FK_employees_positions">
+            <End Role="positions" EntitySet="positions" />
+            <End Role="employees" EntitySet="employees" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ClaimsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="category">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="hours" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="claims" Relationship="Self.FK_claims_categories" FromRole="categories" ToRole="claims" />
+        </EntityType>
+        <EntityType Name="claim">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="theme" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="created_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="initiator" Type="Int32" Nullable="false" />
+          <Property Name="category" Type="Int32" Nullable="false" />
+          <Property Name="approved_date" Type="DateTime" Precision="3" />
+          <Property Name="dispatcher" Type="Int32" />
+          <Property Name="department" Type="Int32" />
+          <Property Name="finished_date" Type="DateTime" Precision="3" />
+          <Property Name="executed_date" Type="DateTime" Precision="3" />
+          <Property Name="executor" Type="Int32" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+          <Property Name="contractor" Type="Int32" />
+          <Property Name="type" Type="Int32" Nullable="false" />
+          <Property Name="closed_date" Type="DateTime" Precision="3" />
+          <Property Name="confirmed_date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="category_nav" Relationship="Self.FK_claims_categories" FromRole="claims" ToRole="categories" />
+          <NavigationProperty Name="contractor_nav" Relationship="Self.FK_claims_contractors" FromRole="claims" ToRole="contractors" />
+          <NavigationProperty Name="department_nav" Relationship="Self.FK_claims_departments" FromRole="claims" ToRole="departments" />
+          <NavigationProperty Name="initiator_nav" Relationship="Self.FK_claims_employees" FromRole="claims" ToRole="employees" />
+          <NavigationProperty Name="dispatcher_nav" Relationship="Self.FK_claims_employees_disp" FromRole="claims" ToRole="employees" />
+          <NavigationProperty Name="executor_nav" Relationship="Self.FK_claims_employees_exec" FromRole="claims" ToRole="employees" />
+          <NavigationProperty Name="status_nav" Relationship="Self.FK_claims_statuses" FromRole="claims" ToRole="statuses" />
+          <NavigationProperty Name="type_nav" Relationship="Self.FK_claims_types" FromRole="claims" ToRole="types" />
+        </EntityType>
+        <EntityType Name="contractor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="contact_phone" Type="Decimal" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="rating" Type="Int32" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="claims" Relationship="Self.FK_claims_contractors" FromRole="contractors" ToRole="claims" />
+        </EntityType>
+        <EntityType Name="department">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="head" Type="Int32" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="claims" Relationship="Self.FK_claims_departments" FromRole="departments" ToRole="claims" />
+          <NavigationProperty Name="employees" Relationship="Self.FK_employees_departments" FromRole="departments" ToRole="employees" />
+        </EntityType>
+        <EntityType Name="employee">
+          <Key>
+            <PropertyRef Name="table_number" />
+          </Key>
+          <Property Name="table_number" Type="Int32" Nullable="false" />
+          <Property Name="last_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="first_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="middle_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="position" Type="Int32" Nullable="false" />
+          <Property Name="photo_path" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="department" Type="Int32" Nullable="false" />
+          <Property Name="birth_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="phone" Type="Decimal" Precision="11" Scale="0" />
+          <Property Name="pass_hash" Type="Binary" MaxLength="16" FixedLength="true" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="claims" Relationship="Self.FK_claims_employees" FromRole="employees" ToRole="claims" />
+          <NavigationProperty Name="claims1" Relationship="Self.FK_claims_employees_disp" FromRole="employees" ToRole="claims" />
+          <NavigationProperty Name="claims2" Relationship="Self.FK_claims_employees_exec" FromRole="employees" ToRole="claims" />
+          <NavigationProperty Name="department_nav" Relationship="Self.FK_employees_departments" FromRole="employees" ToRole="departments" />
+          <NavigationProperty Name="position_nav" Relationship="Self.FK_employees_positions" FromRole="employees" ToRole="positions" />
+        </EntityType>
+        <EntityType Name="position">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="document_path" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="employees" Relationship="Self.FK_employees_positions" FromRole="positions" ToRole="employees" />
+        </EntityType>
+        <EntityType Name="status">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="comment" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="claims" Relationship="Self.FK_claims_statuses" FromRole="statuses" ToRole="claims" />
+        </EntityType>
+        <EntityType Name="type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="claims" Relationship="Self.FK_claims_types" FromRole="types" ToRole="claims" />
+        </EntityType>
+        <Association Name="FK_claims_categories">
+          <End Role="categories" Type="Self.category" Multiplicity="1" />
+          <End Role="claims" Type="Self.claim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categories">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="claims">
+              <PropertyRef Name="category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_claims_contractors">
+          <End Role="contractors" Type="Self.contractor" Multiplicity="0..1" />
+          <End Role="claims" Type="Self.claim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contractors">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="claims">
+              <PropertyRef Name="contractor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_claims_departments">
+          <End Role="departments" Type="Self.department" Multiplicity="0..1" />
+          <End Role="claims" Type="Self.claim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departments">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="claims">
+              <PropertyRef Name="department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_claims_employees">
+          <End Role="employees" Type="Self.employee" Multiplicity="1" />
+          <End Role="claims" Type="Self.claim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employees">
+              <PropertyRef Name="table_number" />
+            </Principal>
+            <Dependent Role="claims">
+              <PropertyRef Name="initiator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_claims_employees_disp">
+          <End Role="employees" Type="Self.employee" Multiplicity="0..1" />
+          <End Role="claims" Type="Self.claim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employees">
+              <PropertyRef Name="table_number" />
+            </Principal>
+            <Dependent Role="claims">
+              <PropertyRef Name="dispatcher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_claims_employees_exec">
+          <End Role="employees" Type="Self.employee" Multiplicity="0..1" />
+          <End Role="claims" Type="Self.claim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employees">
+              <PropertyRef Name="table_number" />
+            </Principal>
+            <Dependent Role="claims">
+              <PropertyRef Name="executor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_claims_statuses">
+          <End Role="statuses" Type="Self.status" Multiplicity="1" />
+          <End Role="claims" Type="Self.claim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="statuses">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="claims">
+              <PropertyRef Name="status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_claims_types">
+          <End Role="types" Type="Self.type" Multiplicity="1" />
+          <End Role="claims" Type="Self.claim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="types">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="claims">
+              <PropertyRef Name="type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_employees_departments">
+          <End Role="departments" Type="Self.department" Multiplicity="1" />
+          <End Role="employees" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departments">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="employees">
+              <PropertyRef Name="department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_employees_positions">
+          <End Role="positions" Type="Self.position" Multiplicity="1" />
+          <End Role="employees" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="positions">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="employees">
+              <PropertyRef Name="position" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ClaimsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="categories" EntityType="Self.category" />
+          <EntitySet Name="claims" EntityType="Self.claim" />
+          <EntitySet Name="contractors" EntityType="Self.contractor" />
+          <EntitySet Name="departments" EntityType="Self.department" />
+          <EntitySet Name="employees" EntityType="Self.employee" />
+          <EntitySet Name="positions" EntityType="Self.position" />
+          <EntitySet Name="statuses" EntityType="Self.status" />
+          <EntitySet Name="types" EntityType="Self.type" />
+          <AssociationSet Name="FK_claims_categories" Association="Self.FK_claims_categories">
+            <End Role="categories" EntitySet="categories" />
+            <End Role="claims" EntitySet="claims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_claims_contractors" Association="Self.FK_claims_contractors">
+            <End Role="contractors" EntitySet="contractors" />
+            <End Role="claims" EntitySet="claims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_claims_departments" Association="Self.FK_claims_departments">
+            <End Role="departments" EntitySet="departments" />
+            <End Role="claims" EntitySet="claims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_claims_employees" Association="Self.FK_claims_employees">
+            <End Role="employees" EntitySet="employees" />
+            <End Role="claims" EntitySet="claims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_claims_employees_disp" Association="Self.FK_claims_employees_disp">
+            <End Role="employees" EntitySet="employees" />
+            <End Role="claims" EntitySet="claims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_claims_employees_exec" Association="Self.FK_claims_employees_exec">
+            <End Role="employees" EntitySet="employees" />
+            <End Role="claims" EntitySet="claims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_claims_statuses" Association="Self.FK_claims_statuses">
+            <End Role="statuses" EntitySet="statuses" />
+            <End Role="claims" EntitySet="claims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_claims_types" Association="Self.FK_claims_types">
+            <End Role="types" EntitySet="types" />
+            <End Role="claims" EntitySet="claims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_employees_departments" Association="Self.FK_employees_departments">
+            <End Role="departments" EntitySet="departments" />
+            <End Role="employees" EntitySet="employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_employees_positions" Association="Self.FK_employees_positions">
+            <End Role="positions" EntitySet="positions" />
+            <End Role="employees" EntitySet="employees" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ClaimsModelStoreContainer" CdmEntityContainer="ClaimsEntities">
+          <EntitySetMapping Name="categories">
+            <EntityTypeMapping TypeName="ClaimsModel.category">
+              <MappingFragment StoreEntitySet="categories">
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name" ColumnName="category" />
+                <ScalarProperty Name="hours" ColumnName="hours" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="claims">
+            <EntityTypeMapping TypeName="ClaimsModel.claim">
+              <MappingFragment StoreEntitySet="claims">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="theme" ColumnName="theme" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="initiator" ColumnName="initiator" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="approved_date" ColumnName="approved_date" />
+                <ScalarProperty Name="dispatcher" ColumnName="dispatcher" />
+                <ScalarProperty Name="department" ColumnName="department" />
+                <ScalarProperty Name="finished_date" ColumnName="finished_date" />
+                <ScalarProperty Name="executed_date" ColumnName="executed_date" />
+                <ScalarProperty Name="executor" ColumnName="executor" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="contractor" ColumnName="contractor" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="closed_date" ColumnName="closed_date" />
+                <ScalarProperty Name="confirmed_date" ColumnName="confirmed_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contractors">
+            <EntityTypeMapping TypeName="ClaimsModel.contractor">
+              <MappingFragment StoreEntitySet="contractors">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="contact_phone" ColumnName="contact_phone" />
+                <ScalarProperty Name="rating" ColumnName="rating" />
+                <ScalarProperty Name="address" ColumnName="address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="departments">
+            <EntityTypeMapping TypeName="ClaimsModel.department">
+              <MappingFragment StoreEntitySet="departments">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="head" ColumnName="head" />
+                <ScalarProperty Name="address" ColumnName="address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employees">
+            <EntityTypeMapping TypeName="ClaimsModel.employee">
+              <MappingFragment StoreEntitySet="employees">
+                <ScalarProperty Name="table_number" ColumnName="table_number" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="middle_name" ColumnName="middle_name" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="photo_path" ColumnName="photo_path" />
+                <ScalarProperty Name="department" ColumnName="department" />
+                <ScalarProperty Name="birth_date" ColumnName="birth_date" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="pass_hash" ColumnName="pass_hash" />
+                <ScalarProperty Name="address" ColumnName="address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="positions">
+            <EntityTypeMapping TypeName="ClaimsModel.position">
+              <MappingFragment StoreEntitySet="positions">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="document_path" ColumnName="document_path" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="statuses">
+            <EntityTypeMapping TypeName="ClaimsModel.status">
+              <MappingFragment StoreEntitySet="statuses">
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name" ColumnName="status" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="types">
+            <EntityTypeMapping TypeName="ClaimsModel.type">
+              <MappingFragment StoreEntitySet="types">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

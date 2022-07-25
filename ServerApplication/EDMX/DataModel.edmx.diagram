@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6cd65a001c7d4923abbe151cfbc9ddb9" Name="Diagram1" ZoomLevel="110">
+        <EntityTypeShape EntityType="ClaimsModel.category" Width="1.5" PointX="4.875" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClaimsModel.claim" Width="1.5" PointX="7" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClaimsModel.contractor" Width="1.5" PointX="2.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClaimsModel.department" Width="1.5" PointX="11.375" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClaimsModel.employee" Width="1.5" PointX="9.125" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClaimsModel.position" Width="1.5" PointX="11.375" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClaimsModel.status" Width="1.5" PointX="4.875" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClaimsModel.type" Width="1.5" PointX="4.875" PointY="7.875" IsExpanded="true" />
+        <AssociationConnector Association="ClaimsModel.FK_claims_categories" ManuallyRouted="false" />
+        <AssociationConnector Association="ClaimsModel.FK_claims_contractors" ManuallyRouted="false" />
+        <AssociationConnector Association="ClaimsModel.FK_claims_departments" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="ClaimsModel.FK_claims_employees" ManuallyRouted="false" />
+        <AssociationConnector Association="ClaimsModel.FK_claims_employees_disp" ManuallyRouted="false" />
+        <AssociationConnector Association="ClaimsModel.FK_claims_employees_exec" ManuallyRouted="false" />
+        <AssociationConnector Association="ClaimsModel.FK_claims_statuses" ManuallyRouted="false" />
+        <AssociationConnector Association="ClaimsModel.FK_claims_types" ManuallyRouted="false" />
+        <AssociationConnector Association="ClaimsModel.FK_employees_departments" ManuallyRouted="false" />
+        <AssociationConnector Association="ClaimsModel.FK_employees_positions" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
